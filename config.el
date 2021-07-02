@@ -58,5 +58,5 @@
 (setq-default fill-column 80)
 (map! :leader
       (:prefix-map ("a" . "add")
-       :desc "Insert newline below" "o" #'+default/newline-below
-       :desc "Insert newline above" "O" #'+default/newline-above))
+       :desc "Insert newline below" "o" #'+evil/insert-newline-below
+       :desc "Insert newline above" "O" #'+evil/insert-newline-above))
