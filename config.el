@@ -55,6 +55,7 @@
 ;; (setq evil-snipe-override-evil-repeat-keys nil)
 ;; (setq doom-localleader-key ",")
 ;; (setq doom-localleader-alt-key "M-,")
+(add-hook 'text-mode-hook #'auto-fill-mode)
 (after! evil-snipe
   (evil-snipe-mode -1))
 (setq confirm-kill-emacs nil)
