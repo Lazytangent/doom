@@ -52,6 +52,7 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-(after! evil-snipe (evil-snipe-mode -1))
+(after! evil-snipe
+  (evil-snipe-mode -1))
 (setq confirm-kill-emacs nil)
 (setq-default fill-column 80)
