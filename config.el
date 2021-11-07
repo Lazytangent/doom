@@ -64,3 +64,6 @@
       (:prefix-map ("a" . "add")
        :desc "Insert newline below" "o" #'+evil/insert-newline-below
        :desc "Insert newline above" "O" #'+evil/insert-newline-above))
+(map! (:prefix "C-w"
+        :desc "Horizontal split" :n "s" #'+evil/window-split-and-follow
+        :desc "Vertical split" :n "v" #'+evil/window-vsplit-and-follow))
