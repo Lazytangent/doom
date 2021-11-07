@@ -56,8 +56,6 @@
 ;; (setq doom-localleader-key ",")
 ;; (setq doom-localleader-alt-key "M-,")
 (add-hook 'text-mode-hook #'auto-fill-mode)
-(after! evil-snipe
-  (evil-snipe-mode -1))
 (setq
         org-directory "~/Documents/org"
         confirm-kill-emacs nil)
