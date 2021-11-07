@@ -51,3 +51,4 @@
 
 (package! doom-snippets :ignore t)
 (package! auto-yasnippet :ignore t)
+(package! pipenv)
