@@ -57,15 +57,16 @@
 ;; (setq doom-localleader-alt-key "M-,")
 (add-hook 'text-mode-hook #'auto-fill-mode)
 (setq
-        org-directory "~/Documents/org"
-        confirm-kill-emacs nil)
+ org-directory "~/Documents/org"
+ confirm-kill-emacs nil)
 (setq-default fill-column 80)
 (map! :leader
       (:prefix ("a" . "add")
        :desc "Insert newline below" "o" #'+evil/insert-newline-below
-       :desc "Insert newline above" "O" #'+evil/insert-newline-above))
+       :desc "Insert newline above" "O" #'+evil/insert-newline-above)
+      (:prefix "f"
+       :desc "Format" :n "f" #'+format/buffer))
 (map! (:prefix "C-w"
-        :desc "Horizontal split" :n "s" #'+evil/window-split-and-follow
-        :desc "Vertical split" :n "v" #'+evil/window-vsplit-and-follow))
-(map! :localleader
-      :desc "Format" :n "f" #'+format/buffer)
+       :desc "Horizontal split" :n "s" #'+evil/window-split-and-follow
+       :desc "Vertical split" :n "v" #'+evil/window-vsplit-and-follow))
+;; (map! :localleader :desc "Format" :n "f" #'+format/buffer)
