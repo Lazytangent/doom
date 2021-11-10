@@ -7,7 +7,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Peter Mai"
-      user-mail-address "pm123633@gmail.com")
+      user-mail-address "peter.tn.mai@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -57,15 +57,16 @@
 ;; (setq doom-localleader-alt-key "M-,")
 (add-hook 'text-mode-hook #'auto-fill-mode)
 (setq
- org-directory "~/Documents/org"
- confirm-kill-emacs nil)
+        org-directory "~/Documents/org"
+        confirm-kill-emacs nil)
 (setq-default fill-column 80)
 (map! :leader
       (:prefix ("a" . "add")
        :desc "Insert newline below" "o" #'+evil/insert-newline-below
        :desc "Insert newline above" "O" #'+evil/insert-newline-above)
       (:prefix "f"
-       :desc "Format" :n "f" #'+format/buffer))
+       (:prefix ("," . "Util")
+        :desc "Format" :n "f" #'+format/buffer)))
 (map! (:prefix "C-w"
        :desc "Horizontal split" :n "s" #'+evil/window-split-and-follow
        :desc "Vertical split" :n "v" #'+evil/window-vsplit-and-follow))
