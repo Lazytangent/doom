@@ -25,7 +25,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-acario-dark)
+(setq doom-theme 'doom-one)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -56,10 +56,9 @@
 ;; (setq doom-localleader-key ",")
 ;; (setq doom-localleader-alt-key "M-,")
 (add-hook 'text-mode-hook #'auto-fill-mode)
-(setq
-        org-directory "~/Documents/org"
-        confirm-kill-emacs nil)
+(setq confirm-kill-emacs nil)
 (setq-default fill-column 80)
+(general-auto-unbind-keys)
 (map! :leader
       (:prefix ("a" . "add")
        :desc "Insert newline below" "o" #'+evil/insert-newline-below
@@ -70,4 +69,9 @@
 (map! (:prefix "C-w"
        :desc "Horizontal split" :n "s" #'+evil/window-split-and-follow
        :desc "Vertical split" :n "v" #'+evil/window-vsplit-and-follow))
+(map! (:when (featurep! :lang org)
+       :localleader
+        (:prefix "j"
+         :n "i" #'org-insert-structure-template)))
+(require 'org-tempo)
 ;; (map! :localleader :desc "Format" :n "f" #'+format/buffer)
