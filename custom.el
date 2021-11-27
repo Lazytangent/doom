@@ -7,6 +7,9 @@
    ["#1b1d1e" "#d02b61" "#60aa00" "#d08928" "#6c9ef8" "#b77fdb" "#00aa80" "#dddddd"])
  '(custom-safe-themes
    '("a9a67b318b7417adbedaab02f05fa679973e9718d9d26075c6235b1f0db703c8" default))
+ '(doom-modeline-enable-word-count t)
+ '(doom-modeline-hud t)
+ '(doom-modeline-indent-info t)
  '(exwm-floating-border-color "#303030")
  '(fci-rule-color "#505050")
  '(highlight-tail-colors ((("#212b1b" "#212b1b") . 0) (("#182b27" "#182b27") . 20)))
@@ -16,7 +19,7 @@
  '(js-indent-level 2)
  '(objed-cursor-color "#d02b61")
  '(org-agenda-files
-   '("~/Documents/org/agenda.org" "~/Documents/org/default.org" "/Users/petermai/org/todo.org"))
+   '("~/Documents/AppAcademyWork/August/Notes.org" "/Users/petermai/Documents/org/vault.org" "/Users/petermai/Documents/org/reminders.org" "/Users/petermai/Documents/org/agenda.org" "/Users/petermai/Documents/org/default.org"))
  '(pdf-view-midnight-colors (cons "#dddddd" "#1b1d1e"))
  '(rustic-ansi-faces
    ["#1b1d1e" "#d02b61" "#60aa00" "#d08928" "#6c9ef8" "#b77fdb" "#00aa80" "#dddddd"])
@@ -48,3 +51,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(put 'customize-group 'disabled nil)

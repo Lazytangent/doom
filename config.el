@@ -19,8 +19,9 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
-;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
+;; (setq doom-font (font-spec :family "Fira Code" :size 12)
+;;     doom-variable-pitch-font (font-spec :family "sans" :size 13))
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 12))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -56,7 +57,13 @@
 ;; (setq doom-localleader-key ",")
 ;; (setq doom-localleader-alt-key "M-,")
 (add-hook 'text-mode-hook #'auto-fill-mode)
-(setq confirm-kill-emacs nil)
+(setq header-line-format " ")
+(set-face-attribute 'header nil :background 'background)
+(setq scroll-margin 6)
+(set-window-margins (selected-window) 1 1)
+(setq
+        confirm-kill-emacs nil
+        org-log-done 'time)
 (setq-default fill-column 80)
 (general-auto-unbind-keys)
 (map! :leader
