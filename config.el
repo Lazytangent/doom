@@ -58,7 +58,6 @@
 ;; (setq doom-localleader-alt-key "M-,")
 (add-hook 'text-mode-hook #'auto-fill-mode)
 (setq header-line-format " ")
-(set-face-attribute 'header nil :background 'background)
 (setq scroll-margin 6)
 (set-window-margins (selected-window) 1 1)
 (setq
