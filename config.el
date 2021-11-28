@@ -67,6 +67,22 @@
 (set-file-template! "\\.org$" :trigger "__" :mode 'org-mode)
 (setq treemacs-position 'right)
 
+(defun +yas/org-src-lang ()
+  "Try to find the current language of the src/header at `point'. Return nil otherwise."
+  (let ((context (org-element-context)))
+    (pcase (org-element-type context)
+      ('src-block (org-element-property :language context))
+      ('inline-src-block (org-element-property :language context))
+      ('keyword (when (string-match "^header-args:\\([^ ]+\\)" (org-element-property :value context))
+                  (match-string 1 (org-element-property :value context)))))))
+
+(defun +yas/org-last-src-lang ()
+  "Return the language of the last src-block, if it exists."
+  (save-excursion
+    (beginning-of-line)
+    (when (re-search-backward "^[ \t]*#\\+begin_src" nil t)
+      (org-element-property :language (org-element-context)))))
+
 (after! (yas-reload-all)
   (add-hook 'prog-mode-hook #'yas-minor-mode))
 
