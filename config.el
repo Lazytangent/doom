@@ -64,7 +64,7 @@
 (setq scroll-margin 6)
 (set-window-margins (selected-window) 1 1)
 
-(set-file-template "\\.org$" :trigger "__" :mode 'org-mode)
+(set-file-template! "\\.org$" :trigger "__" :mode 'org-mode)
 (setq treemacs-position 'right)
 
 (after! (yas-reload-all)
