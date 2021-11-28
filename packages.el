@@ -49,6 +49,4 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-(package! doom-snippets :ignore t)
-(package! auto-yasnippet :ignore t)
 (package! pipenv)

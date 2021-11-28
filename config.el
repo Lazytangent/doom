@@ -64,6 +64,11 @@
 (setq scroll-margin 6)
 (set-window-margins (selected-window) 1 1)
 
+(set-file-template "\\.org$" :trigger "__" :mode 'org-mode)
+
+(after! (yas-reload-all)
+  (add-hook 'prog-mode-hook #'yas-minor-mode))
+
 (display-time-mode 1)
 (global-subword-mode 1)
 (setq
