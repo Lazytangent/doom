@@ -6,7 +6,7 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
-(setq user-full-name "Peter Mai"
+(setq user-full-name "Lazytangent"
       user-mail-address "peter.tn.mai@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
@@ -65,6 +65,7 @@
 (set-window-margins (selected-window) 1 1)
 
 (set-file-template "\\.org$" :trigger "__" :mode 'org-mode)
+(setq treemacs-position 'right)
 
 (after! (yas-reload-all)
   (add-hook 'prog-mode-hook #'yas-minor-mode))
