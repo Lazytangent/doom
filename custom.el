@@ -19,7 +19,7 @@
  '(js-indent-level 2)
  '(objed-cursor-color "#d02b61")
  '(org-agenda-files
-   '("~/Documents/PersonalProjects/Orangez/Orangez/README.org" "/Users/petermai/Documents/AppAcademyWork/August/Notes.org" "/Users/petermai/Documents/org/vault.org" "/Users/petermai/Documents/org/reminders.org" "/Users/petermai/Documents/org/agenda.org" "/Users/petermai/Documents/org/default.org"))
+   '("~/Documents/org/orgmode.org" "/Users/petermai/Documents/PersonalProjects/Orangez/Orangez/README.org" "/Users/petermai/Documents/AppAcademyWork/August/Notes.org" "/Users/petermai/Documents/org/vault.org" "/Users/petermai/Documents/org/reminders.org" "/Users/petermai/Documents/org/agenda.org" "/Users/petermai/Documents/org/default.org"))
  '(pdf-view-midnight-colors (cons "#dddddd" "#1b1d1e"))
  '(rustic-ansi-faces
    ["#1b1d1e" "#d02b61" "#60aa00" "#d08928" "#6c9ef8" "#b77fdb" "#00aa80" "#dddddd"])
