@@ -50,13 +50,13 @@
 ;(unpin! t)
 (add-load-path! "~/Documents/Emacs/elisp-tree-sitter")
 (package! pipenv)
-(package! tsc
-  :recipe (:local-repo "~/Documents/Emacs/elisp-tree-sitter/core"
-           :files ("DYN-VERSION" "tsc-dyn.*" "*.el")))
+;; (package! tsc
+;;   :recipe (:local-repo "~/Documents/Emacs/elisp-tree-sitter/core"
+;;            :files ("DYN-VERSION" "tsc-dyn.*" "*.el")))
 (package! tree-sitter)
 ;; (package! tree-sitter-hl)
-(package! tree-sitter-langs
-  :recipe (:local-repo "~/Documents/Emacs/elisp-tree-sitter"
-           :files ("langs/*.el" ("bin" "langs/bin/*.dylib") ("queries" "langs/queries/*"))))
+(package! tree-sitter-langs)
+  ;; :recipe (:local-repo "~/Documents/Emacs/elisp-tree-sitter"
+  ;;          :files ("langs/*.el" ("bin" "langs/bin/*.dylib") ("queries" "langs/queries/*"))))
 ;; (package! tree-sitter-debug)
 ;; (package! tree-sitter-query)
