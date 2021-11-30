@@ -23,6 +23,7 @@
  '(pdf-view-midnight-colors (cons "#dddddd" "#1b1d1e"))
  '(rustic-ansi-faces
    ["#1b1d1e" "#d02b61" "#60aa00" "#d08928" "#6c9ef8" "#b77fdb" "#00aa80" "#dddddd"])
+ '(safe-local-variable-values '((comment-fill-column . 80)))
  '(vc-annotate-background "#1b1d1e")
  '(vc-annotate-color-map
    (list
