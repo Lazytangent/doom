@@ -37,7 +37,9 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-type nil)
+(setq company-idle-delay nil)
+(setq evil-ex-substitute-global t)
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
@@ -60,11 +62,11 @@
 ;; (setq doom-localleader-key ",")
 ;; (setq doom-localleader-alt-key "M-,")
 (add-hook 'text-mode-hook #'auto-fill-mode)
-(setq header-line-format " ")
 (setq scroll-margin 6)
-(set-window-margins (selected-window) 1 1)
 
+;; Templates
 (set-file-template! "\\.org$" :trigger "__" :mode 'org-mode)
+
 (setq treemacs-position 'right)
 
 (defun +yas/org-src-lang ()
@@ -105,6 +107,15 @@
       :ne "b" #'vertico/switch-workspace-buffer
       :ne "B" #'consult-buffer
       :ne "q" #'save-buffers-kill-emacs)
+
+(map! (:after evil-org
+       :map evil-org-mode-map
+       :n "gk" (cmd! (if (org-on-heading-p)
+                         (org-backward-element)
+                       (evil-previous-visual-line)))
+       :n "gj" (cmd! (if (org-on-heading-p)
+                         (org-forward-element)
+                       (evil-next-visual-line)))))
 
 (after! (yas-reload-all)
   (add-hook 'prog-mode-hook #'yas-minor-mode))
@@ -162,46 +173,50 @@
                                        "cannot open shared object file")
                             (error-message-string e))
             (signal (car e) (cadr e)))))))
-(setq org-super-agenda-mode t)
-(let ((org-super-agenda-groups
-       '(;; Each group has an implicit boolean OR operator between its selectors.
-         (:name "Today"  ; Optionally specify section name
-                :time-grid t  ; Items that appear on the time grid
-                :todo "TODAY")  ; Items that have this TODO keyword
-         (:name "Important"
-                ;; Single arguments given alone
-                :tag "bills"
-                :priority "A")
-         ;; Set order of multiple groups at once
-         (:order-multi (2 (:name "Shopping in town"
-                                 ;; Boolean AND group matches items that match all subgroups
-                                 :and (:tag "shopping" :tag "@town"))
-                          (:name "Food-related"
-                                 ;; Multiple args given in list with implicit OR
-                                 :tag ("food" "dinner"))
-                          (:name "Personal"
-                                 :habit t
-                                 :tag "personal")
-                          (:name "Space-related (non-moon-or-planet-related)"
-                                 ;; Regexps match case-insensitively on the entire entry
-                                 :and (:regexp ("space" "NASA")
-                                               ;; Boolean NOT also has implicit OR between selectors
-                                               :not (:regexp "moon" :tag "planet")))))
-         ;; Groups supply their own section names when none are given
-         (:todo "WAITING" :order 8)  ; Set order of this section
-         (:todo ("SOMEDAY" "TO-READ" "CHECK" "TO-WATCH" "WATCHING")
-                ;; Show this group at the end of the agenda (since it has the
-                ;; highest number). If you specified this group last, items
-                ;; with these todo keywords that e.g. have priority A would be
-                ;; displayed in that group instead, because items are grouped
-                ;; out in the order the groups are listed.
-                :order 9)
-         (:priority<= "B"
-                      ;; Show this section after "Today" and "Important", because
-                      ;; their order is unspecified, defaulting to 0. Sections
-                      ;; are displayed lowest-number-first.
-                      :order 1)
-         ;; After the last group, the agenda will display items that didn't
-         ;; match any of these groups, with the default order position of 99
-         )))
-  (org-agenda nil "a"))
+(use-package! org-super-agenda
+  :after org-agenda
+  :init
+  (setq org-agenda-skip-scheduled-if-done t
+      org-agenda-skip-deadline-if-done t
+      org-agenda-include-deadlines t
+      org-agenda-block-separator nil
+      org-agenda-compact-blocks t
+      org-agenda-start-day nil ;; i.e. today
+      org-agenda-span 1
+      org-agenda-start-on-weekday nil)
+  (setq org-agenda-custom-commands
+        '(("c" "Super view"
+           ((agenda "" ((org-agenda-overriding-header "")
+                        (org-super-agenda-groups
+                         '((:name "Today"
+                                  :time-grid t
+                                  :date today
+                                  :order 1)))))
+            (alltodo "" ((org-agenda-overriding-header "")
+                         (org-super-agenda-groups
+                          '((:log t)
+                            (:name "To refile"
+                                   :file-path "refile\\.org")
+                            (:name "Next to do"
+                                   :todo "NEXT"
+                                   :order 1)
+                            (:name "Important"
+                                   :priority "A"
+                                   :order 6)
+                            (:name "Today's tasks"
+                                   :file-path "journal/")
+                            (:name "Due Today"
+                                   :deadline today
+                                   :order 2)
+                            (:name "Scheduled Soon"
+                                   :scheduled future
+                                   :order 8)
+                            (:name "Overdue"
+                                   :deadline past
+                                   :order 7)
+                            (:name "Meetings"
+                                   :and (:todo "MEET" :scheduled future)
+                                   :order 10)
+                            (:discard (:not (:todo "TODO")))))))))))
+  :config
+  (org-super-agenda-mode))
