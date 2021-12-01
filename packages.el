@@ -58,5 +58,6 @@
 (package! tree-sitter-langs
   :recipe (:local-repo "~/Documents/Emacs/elisp-tree-sitter"
            :files ("langs/*.el" ("bin" "langs/bin/*.dylib") ("queries" "langs/queries/*"))))
+(package! org-super-agenda)
 ;; (package! tree-sitter-debug)
 ;; (package! tree-sitter-query)
