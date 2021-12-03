@@ -125,7 +125,6 @@
 (setq
         confirm-kill-emacs nil
         org-log-done 'time
-        scroll-margin 2
         evil-vsplit-window-right t
         evil-split-window-below t)
 
@@ -182,7 +181,7 @@
       org-agenda-block-separator nil
       org-agenda-compact-blocks t
       org-agenda-start-day nil ;; i.e. today
-      org-agenda-span 1
+      ;; org-agenda-span 1
       org-agenda-start-on-weekday nil)
   (setq org-agenda-custom-commands
         '(("c" "Super view"
