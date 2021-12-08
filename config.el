@@ -23,16 +23,11 @@
 (setq doom-font (font-spec :family "FiraCode Nerd Font" :size 12)
       doom-variable-pitch-font (font-spec :family "Fira Sans"))
 
-;; There are two ways to load a theme. Both assume the theme is installed and
-;; available. You can either set `doom-theme' or manually load a theme with the
-;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-vibrant)
 (custom-set-faces!
   '(doom-modeline-buffer-modified :foreground "orange"))
 (setq which-key-idle-delay 0.5)
 
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/Documents/org/")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
@@ -40,7 +35,6 @@
 (setq display-line-numbers-type nil)
 (setq company-idle-delay nil)
 (setq evil-ex-substitute-global t)
-
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
@@ -58,9 +52,6 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-;; (setq evil-snipe-override-evil-repeat-keys nil)
-;; (setq doom-localleader-key ",")
-;; (setq doom-localleader-alt-key "M-,")
 (add-hook 'text-mode-hook #'auto-fill-mode)
 (setq scroll-margin 6)
 
@@ -131,9 +122,6 @@
 (setq-default fill-column 80)
 (general-auto-unbind-keys)
 (map! :leader
-      ;; (:prefix ("a" . "add")
-      ;;  :desc "Insert newline below" "o" #'+evil/insert-newline-below
-      ;;  :desc "Insert newline above" "O" #'+evil/insert-newline-above)
       (:prefix "f"
        (:prefix ("," . "Util")
         :desc "Format" :n "f" #'+format/buffer)))
@@ -154,24 +142,11 @@
       "C-<down>" #'+evil/window-move-up
       "C-<down>" #'+evil/window-move-right)
 (require 'org-tempo)
-;; (map! :localleader :desc "Format" :n "f" #'+format/buffer)
 (use-package! tree-sitter
-  :when (bound-and-true-p module-file-suffix)
-  :hook (prog-mode . tree-sitter-mode)
-  :hook (tree-sitter-after-on . tree-sitter-hl-mode)
   :config
-  ;; (require 'tree-sitter-langs)
-  (defadvice! doom-tree-sitter-fail-gracefully-a (orig-fn &rest args)
-    "Don't break with errors when current major mode lacks tree-sitter support."
-    :around #'tree-sitter-mode
-    (condition-case e
-        (apply orig-fn args)
-      (error
-       (unless (string-match-p (concat "^Cannot find shared library\\|"
-                                       "^No language registered\\|"
-                                       "cannot open shared object file")
-                            (error-message-string e))
-            (signal (car e) (cadr e)))))))
+  (require 'tree-sitter-langs)
+  (global-tree-sitter-mode)
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 (use-package! org-super-agenda
   :after org-agenda
   :init
