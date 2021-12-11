@@ -26,6 +26,7 @@
 (setq doom-theme 'doom-vibrant)
 (custom-set-faces!
   '(doom-modeline-buffer-modified :foreground "orange"))
+(setq doom-modeline-modal-icon 'evil)
 (setq which-key-idle-delay 0.5)
 
 (setq org-directory "~/Documents/org/")
@@ -156,7 +157,6 @@
       org-agenda-block-separator nil
       org-agenda-compact-blocks t
       org-agenda-start-day nil ;; i.e. today
-      ;; org-agenda-span 1
       org-agenda-start-on-weekday nil)
   (setq org-agenda-custom-commands
         '(("c" "Super view"
@@ -194,3 +194,11 @@
                             (:discard (:not (:todo "TODO")))))))))))
   :config
   (org-super-agenda-mode))
+
+(use-package! emmet-mode)
+(add-to-list 'emmet-jsx-major-modes 'rjsx-mode)
+(add-to-list 'emmet-jsx-major-modes 'jsx-mode)
+(add-to-list 'emmet-jsx-major-modes 'js-mode)
+(setq emmet-self-closing-tag-style " /")
+
+(map! "C-l" #'emmet-expand-line)
