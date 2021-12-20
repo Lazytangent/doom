@@ -55,5 +55,7 @@
 ;; (package! tree-sitter-hl)
 (package! tree-sitter-langs)
 (package! org-super-agenda)
+(package! emmet-mode)
+(package! graphql-mode)
 ;; (package! tree-sitter-debug)
 ;; (package! tree-sitter-query)
