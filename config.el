@@ -202,3 +202,9 @@
 (setq emmet-self-closing-tag-style " /")
 
 (map! "C-l" #'emmet-expand-line)
+
+(setq ispell-hunspell-dict-paths-alist
+      '(("en_US" "~/Documents/Emacs/dictionaries/en_US.aff")))
+
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
+(use-package! graphql-mode)
