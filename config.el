@@ -208,3 +208,4 @@
 
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
 (use-package! graphql-mode)
+(add-to-list 'org-file-apps '("\\.pdf\\'" . zathura))
