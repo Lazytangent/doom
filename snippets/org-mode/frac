@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: \frac{$1}{$2}$0
+# uuid: frac
+# key: frac
+# --
+\frac{$1}{$2}$0

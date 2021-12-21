@@ -203,8 +203,13 @@
 
 (map! "C-l" #'emmet-expand-line)
 
+(setq ispell-program-name "hunspell")
 (setq ispell-hunspell-dict-paths-alist
-      '(("en_US" "~/Documents/Emacs/dictionaries/en_US.aff")))
+      '(("en_US" "~/Documents/Emacs/dictionaries/en_US/en_US.aff")))
 
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
 (use-package! graphql-mode)
+(use-package! evil-org
+  :config
+  (map! :map evil-org-mode-map
+        :i "C-k" #'evil-insert-digraph))
