@@ -213,4 +213,4 @@
   :config
   (map! :map evil-org-mode-map
         :i "C-k" #'evil-insert-digraph))
-(add-to-list 'org-file-apps '("\\.pdf\\'" . zathura))
+(add-to-list 'org-file-apps '("\\.pdf\\'" . "zathura %s"))
