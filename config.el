@@ -5,7 +5,7 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
-(setq user-full-name "Lazytangent"
+(setq user-full-name "Peter Mai"
       user-mail-address "peter.tn.mai@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
@@ -194,6 +194,7 @@
                             (:discard (:not (:todo "TODO")))))))))))
   :config
   (org-super-agenda-mode))
+(setq org-hide-emphasis-markers t)
 
 (use-package! emmet-mode)
 (add-to-list 'emmet-jsx-major-modes 'rjsx-mode)
@@ -204,8 +205,6 @@
 (map! "C-l" #'emmet-expand-line)
 
 (setq ispell-program-name "hunspell")
-(setq ispell-hunspell-dict-paths-alist
-      '(("en_US" "~/Documents/Emacs/dictionaries/en_US/en_US.aff")))
 
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
 (use-package! graphql-mode)

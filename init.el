@@ -72,6 +72,7 @@
        :tools
        ;;direnv
        (docker +lsp)
+       (debugger +lsp)
        editorconfig      ; let someone else argue about tabs vs spaces
        (eval +overlay)     ; run code, run (also, repls)
        gist              ; interacting with github gists
