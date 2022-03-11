@@ -19,7 +19,7 @@
  '(js-indent-level 2)
  '(objed-cursor-color "#d02b61")
  '(org-agenda-files
-   '("~/Documents/VaultHealth/Tickets/TEAM3-244.org" "/Users/pmai/Documents/org/vim.org" "/Users/pmai/Documents/org/cs50.org" "/Users/pmai/Documents/VaultHealth/Onboarding/VaultCamp/06/02-nextjs-training-level1.org" "/Users/pmai/Documents/org/slack.org" "/Users/pmai/Documents/org/notion.org" "/Users/pmai/Documents/org/neovim.org" "/Users/pmai/Documents/VaultHealth/Onboarding/VaultCamp/README.org" "/Users/pmai/Documents/org/vault.org" "/Users/pmai/Documents/VaultHealth/Onboarding/SecureApplicationDevelopment/01-password-hygiene.org"))
+   '("~/Documents/org/vault.org" "/Users/pmai/Documents/Programming/Python/StandardLibrary/README.org" "/Users/pmai/Documents/Programming/Python/HowTos/descriptors.org" "/Users/pmai/Documents/org/projects.org" "/Users/pmai/Documents/Programming/Python/FluentPython/notes/README.org" "/Users/pmai/Documents/Programming/Python/FluentPython/notes/02-data-structures/03-dictionaries-and-sets.org" "/Users/pmai/Documents/Programming/Flask/Notes/users-guide/README.org" "/Users/pmai/Documents/VaultHealth/Tickets/TEAM3-244.org" "/Users/pmai/Documents/org/vim.org" "/Users/pmai/Documents/org/cs50.org" "/Users/pmai/Documents/VaultHealth/Onboarding/VaultCamp/06/02-nextjs-training-level1.org" "/Users/pmai/Documents/org/slack.org" "/Users/pmai/Documents/org/notion.org" "/Users/pmai/Documents/org/neovim.org" "/Users/pmai/Documents/VaultHealth/Onboarding/VaultCamp/README.org" "/Users/pmai/Documents/VaultHealth/Onboarding/SecureApplicationDevelopment/01-password-hygiene.org"))
  '(pdf-view-midnight-colors (cons "#dddddd" "#1b1d1e"))
  '(rustic-ansi-faces
    ["#1b1d1e" "#d02b61" "#60aa00" "#d08928" "#6c9ef8" "#b77fdb" "#00aa80" "#dddddd"])
