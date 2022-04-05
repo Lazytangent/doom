@@ -34,7 +34,7 @@
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type nil)
-(setq company-idle-delay nil)
+;; (setq company-idle-delay nil)
 (setq evil-ex-substitute-global t)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
@@ -143,11 +143,11 @@
       "C-<down>" #'+evil/window-move-up
       "C-<down>" #'+evil/window-move-right)
 (require 'org-tempo)
-(use-package! tree-sitter
-  :config
-  (require 'tree-sitter-langs)
-  (global-tree-sitter-mode)
-  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+;; (use-package! tree-sitter
+;;   :config
+;;   (require 'tree-sitter-langs)
+;;   (global-tree-sitter-mode)
+;;   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 (use-package! org-super-agenda
   :after org-agenda
   :init

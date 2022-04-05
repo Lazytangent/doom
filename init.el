@@ -18,8 +18,8 @@
        ;;layout            ; auie,ctsrnm is the superior home row
 
        :completion
-       (company +childframe)
-       (ivy +fuzzy +childframe +prescient +icons)
+       (company)
+       (ivy +fuzzy +prescient +icons)
 
        :ui
        deft              ; notational velocity for Emacs
