@@ -26,7 +26,6 @@
 (setq doom-theme 'doom-vibrant)
 (custom-set-faces!
   '(doom-modeline-buffer-modified :foreground "orange"))
-(setq doom-modeline-modal-icon 'evil)
 (setq which-key-idle-delay 0.5)
 
 (setq org-directory "~/Documents/org/")
@@ -100,15 +99,6 @@
       :ne "B" #'consult-buffer
       :ne "q" #'save-buffers-kill-emacs)
 
-(map! (:after evil-org
-       :map evil-org-mode-map
-       :n "gk" (cmd! (if (org-on-heading-p)
-                         (org-backward-element)
-                       (evil-previous-visual-line)))
-       :n "gj" (cmd! (if (org-on-heading-p)
-                         (org-forward-element)
-                       (evil-next-visual-line)))))
-
 (after! (yas-reload-all)
   (add-hook 'prog-mode-hook #'yas-minor-mode))
 
@@ -142,12 +132,34 @@
       "C-<down>" #'+evil/window-move-down
       "C-<down>" #'+evil/window-move-up
       "C-<down>" #'+evil/window-move-right)
-(require 'org-tempo)
-;; (use-package! tree-sitter
-;;   :config
-;;   (require 'tree-sitter-langs)
-;;   (global-tree-sitter-mode)
-;;   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+
+(use-package! tree-sitter
+  :config
+  (require 'tree-sitter-langs)
+  (global-tree-sitter-mode)
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+
+(use-package! emmet-mode)
+(add-to-list 'emmet-jsx-major-modes 'rjsx-mode)
+(add-to-list 'emmet-jsx-major-modes 'jsx-mode)
+(add-to-list 'emmet-jsx-major-modes 'js-mode)
+(setq emmet-self-closing-tag-style " /")
+
+(map! "C-l" #'emmet-expand-line)
+
+(setq ispell-program-name "hunspell")
+
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
+
+(use-package! graphql-mode)
+
+(use-package! evil-org
+  :config
+  (map! :map evil-org-mode-map
+        :i "C-k" #'evil-insert-digraph))
+(add-to-list 'org-file-apps '("\\.pdf\\'" . "zathura %s"))
+(setq org-roam-directory "~/Documents/roam")
+
 (use-package! org-super-agenda
   :after org-agenda
   :init
@@ -195,22 +207,12 @@
   :config
   (org-super-agenda-mode))
 (setq org-hide-emphasis-markers t)
-
-(use-package! emmet-mode)
-(add-to-list 'emmet-jsx-major-modes 'rjsx-mode)
-(add-to-list 'emmet-jsx-major-modes 'jsx-mode)
-(add-to-list 'emmet-jsx-major-modes 'js-mode)
-(setq emmet-self-closing-tag-style " /")
-
-(map! "C-l" #'emmet-expand-line)
-
-(setq ispell-program-name "hunspell")
-
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
-(use-package! graphql-mode)
-(use-package! evil-org
-  :config
-  (map! :map evil-org-mode-map
-        :i "C-k" #'evil-insert-digraph))
-(add-to-list 'org-file-apps '("\\.pdf\\'" . "zathura %s"))
-(setq org-roam-directory "~/Documents/roam")
+(require 'org-tempo)
+(map! (:after evil-org
+       :map evil-org-mode-map
+       :n "gk" (cmd! (if (org-on-heading-p)
+                         (org-backward-element)
+                       (evil-previous-visual-line)))
+       :n "gj" (cmd! (if (org-on-heading-p)
+                         (org-forward-element)
+                       (evil-next-visual-line)))))
