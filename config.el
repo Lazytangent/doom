@@ -216,3 +216,23 @@
        :n "gj" (cmd! (if (org-on-heading-p)
                          (org-forward-element)
                        (evil-next-visual-line)))))
+
+(use-package! emmet-mode)
+(add-to-list 'emmet-jsx-major-modes 'rjsx-mode)
+(add-to-list 'emmet-jsx-major-modes 'jsx-mode)
+(add-to-list 'emmet-jsx-major-modes 'js-mode)
+(setq emmet-self-closing-tag-style " /")
+
+(map! "C-l" #'emmet-expand-line)
+
+(setq ispell-program-name "hunspell")
+
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
+(use-package! graphql-mode)
+(use-package! evil-org
+  :config
+  (map! :map evil-org-mode-map
+        :i "C-k" #'evil-insert-digraph))
+(add-to-list 'org-file-apps '("\\.pdf\\'" . "zathura %s"))
+(setq org-roam-directory "~/Documents/roam")
+(setq exec-path (append exec-path '("/opt/homebrew/bin")))
