@@ -89,16 +89,6 @@
            (unless (string= "-" project-name)
              (format (if (buffer-modified-p)  " ◉ %s" "  ●  %s") project-name))))))
 
-(map! :map +doom-dashboard-mode-map
-      :ne "f" #'find-file
-      :ne "r" #'consult-recent-file
-      :ne "p" #'doom/open-private-config
-      :ne "c" (cmd! (find-file (expand-file-name "config.org" doom-private-dir)))
-      :ne "." (cmd! (doom-project-find-file "~/.config/"))
-      :ne "b" #'vertico/switch-workspace-buffer
-      :ne "B" #'consult-buffer
-      :ne "q" #'save-buffers-kill-emacs)
-
 (after! (yas-reload-all)
   (add-hook 'prog-mode-hook #'yas-minor-mode))
 
@@ -111,128 +101,10 @@
         evil-split-window-below t)
 
 (setq-default fill-column 80)
-(general-auto-unbind-keys)
-(map! :leader
-      (:prefix "f"
-       (:prefix ("," . "Util")
-        :desc "Format" :n "f" #'+format/buffer)))
-(map! (:when (featurep! :lang org)
-       :localleader
-        (:prefix "j"
-         :n "i" #'org-insert-structure-template)))
-(map! :map evil-window-map
-      "SPC" #'rotate-layout
-      ;; Navigation
-      "<left>" #'evil-window-left
-      "<down>" #'evil-window-down
-      "<up>" #'evil-window-up
-      "<right>" #'evil-window-right
-      ;; Swapping windows
-      "C-<left>" #'+evil/window-move-left
-      "C-<down>" #'+evil/window-move-down
-      "C-<down>" #'+evil/window-move-up
-      "C-<down>" #'+evil/window-move-right)
-
-(use-package! tree-sitter
-  :config
-  (require 'tree-sitter-langs)
-  (global-tree-sitter-mode)
-  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
-
-(use-package! emmet-mode)
-(add-to-list 'emmet-jsx-major-modes 'rjsx-mode)
-(add-to-list 'emmet-jsx-major-modes 'jsx-mode)
-(add-to-list 'emmet-jsx-major-modes 'js-mode)
-(setq emmet-self-closing-tag-style " /")
-
-(map! "C-l" #'emmet-expand-line)
-
 (setq ispell-program-name "hunspell")
 
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
-
-(use-package! graphql-mode)
-
-(use-package! evil-org
-  :config
-  (map! :map evil-org-mode-map
-        :i "C-k" #'evil-insert-digraph))
-(add-to-list 'org-file-apps '("\\.pdf\\'" . "zathura %s"))
-(setq org-roam-directory "~/Documents/roam")
-
-(use-package! org-super-agenda
-  :after org-agenda
-  :init
-  (setq org-agenda-skip-scheduled-if-done t
-      org-agenda-skip-deadline-if-done t
-      org-agenda-include-deadlines t
-      org-agenda-block-separator nil
-      org-agenda-compact-blocks t
-      org-agenda-start-day nil ;; i.e. today
-      org-agenda-start-on-weekday nil)
-  (setq org-agenda-custom-commands
-        '(("c" "Super view"
-           ((agenda "" ((org-agenda-overriding-header "")
-                        (org-super-agenda-groups
-                         '((:name "Today"
-                                  :time-grid t
-                                  :date today
-                                  :order 1)))))
-            (alltodo "" ((org-agenda-overriding-header "")
-                         (org-super-agenda-groups
-                          '((:log t)
-                            (:name "To refile"
-                                   :file-path "refile\\.org")
-                            (:name "Next to do"
-                                   :todo "NEXT"
-                                   :order 1)
-                            (:name "Important"
-                                   :priority "A"
-                                   :order 6)
-                            (:name "Today's tasks"
-                                   :file-path "journal/")
-                            (:name "Due Today"
-                                   :deadline today
-                                   :order 2)
-                            (:name "Scheduled Soon"
-                                   :scheduled future
-                                   :order 8)
-                            (:name "Overdue"
-                                   :deadline past
-                                   :order 7)
-                            (:name "Meetings"
-                                   :and (:todo "MEET" :scheduled future)
-                                   :order 10)
-                            (:discard (:not (:todo "TODO")))))))))))
-  :config
-  (org-super-agenda-mode))
 (setq org-hide-emphasis-markers t)
-(require 'org-tempo)
-(map! (:after evil-org
-       :map evil-org-mode-map
-       :n "gk" (cmd! (if (org-on-heading-p)
-                         (org-backward-element)
-                       (evil-previous-visual-line)))
-       :n "gj" (cmd! (if (org-on-heading-p)
-                         (org-forward-element)
-                       (evil-next-visual-line)))))
 
-(use-package! emmet-mode)
-(add-to-list 'emmet-jsx-major-modes 'rjsx-mode)
-(add-to-list 'emmet-jsx-major-modes 'jsx-mode)
-(add-to-list 'emmet-jsx-major-modes 'js-mode)
-(setq emmet-self-closing-tag-style " /")
-
-(map! "C-l" #'emmet-expand-line)
-
-(setq ispell-program-name "hunspell")
-
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
-(use-package! graphql-mode)
-(use-package! evil-org
-  :config
-  (map! :map evil-org-mode-map
-        :i "C-k" #'evil-insert-digraph))
-(add-to-list 'org-file-apps '("\\.pdf\\'" . "zathura %s"))
 (setq org-roam-directory "~/Documents/roam")
 (setq exec-path (append exec-path '("/opt/homebrew/bin")))
