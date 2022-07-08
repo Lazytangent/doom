@@ -32,8 +32,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type 'relative)
-;; (setq company-idle-delay nil)
+(setq display-line-numbers-type nil)
 (setq evil-ex-substitute-global t)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
@@ -100,6 +99,7 @@
         evil-vsplit-window-right t
         evil-split-window-below t)
 
+(add-hook 'text-mode-hook #'auto-fill-mode)
 (setq-default fill-column 80)
 (setq ispell-program-name "hunspell")
 
