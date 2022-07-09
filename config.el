@@ -20,10 +20,10 @@
 ;; font string. You generally only need these two:
 ;; (setq doom-font (font-spec :family "Fira Code" :size 12)
 ;;     doom-variable-pitch-font (font-spec :family "sans" :size 13))
-(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 12)
+(setq doom-font (font-spec :family "Fira Code" :size 12)
       doom-variable-pitch-font (font-spec :family "Fira Sans"))
 
-(setq doom-theme 'doom-vibrant)
+(setq doom-theme 'catppuccin)
 (custom-set-faces!
   '(doom-modeline-buffer-modified :foreground "orange"))
 (setq which-key-idle-delay 0.5)
@@ -108,3 +108,16 @@
 
 (setq org-roam-directory "~/Documents/roam")
 (setq exec-path (append exec-path '("/opt/homebrew/bin")))
+(require 'org-tempo)
+(map! (:after evil-org
+       :map evil-org-mode-map
+       :n "gk" (cmd! (if (org-on-heading-p)
+                         (org-backward-element)
+                       (evil-previous-visual-line)))
+       :n "gj" (cmd! (if (org-on-heading-p)
+                         (org-forward-element)
+                       (evil-next-virual-line)))))
+
+(use-package catppuccin-theme
+ :config
+ (setq catppuccin-height-title1 1.5))
