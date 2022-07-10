@@ -8,6 +8,7 @@
        (spell +flyspell +hunspell)
 
        :completion
+       (company +childframe)
        (ivy +fuzzy +prescient +icons +childframe)
 
        :config

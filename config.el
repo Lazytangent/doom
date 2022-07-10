@@ -86,3 +86,5 @@
 (use-package catppuccin-theme
  :config
  (setq catppuccin-height-title1 1.5))
+
+(setq company-idle-delay nil)
