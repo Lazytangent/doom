@@ -3,8 +3,7 @@
 (setq user-full-name "Peter Mai"
       user-mail-address "peter.tn.mai@gmail.com")
 
-(setq doom-font (font-spec :family "Fira Code" :size 12)
-      doom-variable-pitch-font (font-spec :family "Fira Sans"))
+(setq doom-font (font-spec :family "Fira Code" :size 12))
 
 (setq doom-theme 'catppuccin)
 (custom-set-faces!
