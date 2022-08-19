@@ -22,6 +22,7 @@
  '(objed-cursor-color "#d02b61")
  '(org-agenda-files
    '("~/Documents/Programming/Python/SQLAlchemy/ORM/README.org" "/Users/petermai/Documents/Programming/Python/SQLAlchemy/ORM/01-tutorial/README.org" "/Users/petermai/Documents/org/vault.org"))
+ '(package-selected-packages '(company-terraform terraform-mode))
  '(pdf-view-midnight-colors (cons "#dddddd" "#1b1d1e"))
  '(rustic-ansi-faces
    ["#1b1d1e" "#d02b61" "#60aa00" "#d08928" "#6c9ef8" "#b77fdb" "#00aa80" "#dddddd"])
