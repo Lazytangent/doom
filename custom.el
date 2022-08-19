@@ -6,7 +6,7 @@
  '(ansi-color-names-vector
    ["#1b1d1e" "#d02b61" "#60aa00" "#d08928" "#6c9ef8" "#b77fdb" "#00aa80" "#dddddd"])
  '(custom-safe-themes
-   '("025acf94eb56f1b569f853f77effb1aa5006947a9df3a913f52fcb8daf9a15b2" "a9a67b318b7417adbedaab02f05fa679973e9718d9d26075c6235b1f0db703c8" default))
+   '("0d01e1e300fcafa34ba35d5cf0a21b3b23bc4053d388e352ae6a901994597ab1" "025acf94eb56f1b569f853f77effb1aa5006947a9df3a913f52fcb8daf9a15b2" "a9a67b318b7417adbedaab02f05fa679973e9718d9d26075c6235b1f0db703c8" default))
  '(doom-modeline-buffer-file-name-style 'auto)
  '(doom-modeline-enable-word-count t)
  '(doom-modeline-hud t)
