@@ -4,4 +4,3 @@
 (package! org-super-agenda)
 (package! emmet-mode)
 (package! graphql-mode)
-(package! catppuccin-theme)

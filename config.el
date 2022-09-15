@@ -6,7 +6,7 @@
 (setq doom-font (font-spec :family "Fira Code" :size 12)
       doom-variable-pitch-font (font-spec :family "Fira Sans"))
 
-(setq doom-theme 'catppuccin)
+(setq doom-theme 'doom-vibrant)
 (custom-set-faces!
   '(doom-modeline-buffer-modified :foreground "orange"))
 (setq which-key-idle-delay 0.5)
@@ -82,9 +82,3 @@
        :n "gj" (cmd! (if (org-on-heading-p)
                          (org-forward-element)
                        (evil-next-virual-line)))))
-
-(use-package catppuccin-theme
- :config
- (setq catppuccin-height-title1 1.5))
-
-(setq company-idle-delay nil)
