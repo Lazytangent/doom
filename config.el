@@ -3,7 +3,7 @@
 (setq user-full-name "Peter Mai"
       user-mail-address "peter.tn.mai@gmail.com")
 
-(setq doom-font (font-spec :family "Fira Code" :size 12)
+(setq doom-font (font-spec :family "Fira Code" :size 14)
       doom-variable-pitch-font (font-spec :family "Fira Sans"))
 
 (setq doom-theme 'doom-vibrant)
@@ -82,3 +82,5 @@
        :n "gj" (cmd! (if (org-on-heading-p)
                          (org-forward-element)
                        (evil-next-virual-line)))))
+
+(setq company-idle-delay 0.7)
