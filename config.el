@@ -73,14 +73,5 @@
 
 (setq org-roam-directory "~/Documents/roam")
 (setq exec-path (append exec-path '("/opt/homebrew/bin")))
-(require 'org-tempo)
-(map! (:after evil-org
-       :map evil-org-mode-map
-       :n "gk" (cmd! (if (org-on-heading-p)
-                         (org-backward-element)
-                       (evil-previous-visual-line)))
-       :n "gj" (cmd! (if (org-on-heading-p)
-                         (org-forward-element)
-                       (evil-next-virual-line)))))
 
 (setq company-idle-delay 0.7)
