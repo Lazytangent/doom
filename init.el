@@ -34,25 +34,26 @@
        :input
 
        :lang
-       (cc +lsp)
-       (elixir +lsp)
+       (cc +lsp +tree-sitter)
+       (elixir +lsp +tree-sitter)
        emacs-lisp
        erlang
-       (go +lsp)
-       (java +meghanada +lsp)
-       (javascript +lsp)
-       (json +lsp)
+       (go +lsp +tree-sitter)
+       (java +meghanada +lsp +tree-sitter)
+       (javascript +lsp +tree-sitter)
+       (json +lsp +tree-sitter)
        latex
        lua
        markdown
        (org +brain +roam2 +pretty)
-       (python +lsp +pyright +pyenv)
-       (ruby +rails +lsp +rbenv)
-       (rust +lsp)
+       (python +lsp +pyright +pyenv +tree-sitter)
+       (rest +jq)
+       (ruby +rails +lsp +rbenv +tree-sitter)
+       (rust +lsp +tree-sitter)
        (scheme +guile)
        (sh +lsp)
-       (swift +lsp)
-       (web +lsp)
+       (swift +lsp +tree-sitter)
+       (web +lsp +tree-sitter)
        (yaml +lsp)
 
        :os
@@ -74,6 +75,7 @@
        (magit +forge)
        pdf
        rgb
+       tree-sitter
 
        :ui
        deft
