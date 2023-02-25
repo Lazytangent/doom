@@ -6,23 +6,30 @@
 (setq doom-font (font-spec :family "Fira Code" :size 14)
       doom-variable-pitch-font (font-spec :family "Fira Sans"))
 
-(setq doom-theme 'doom-vibrant)
-(custom-set-faces!
-  '(doom-modeline-buffer-modified :foreground "orange"))
-(setq which-key-idle-delay 0.5)
+(setq doom-theme 'doom-vibrant
+      which-key-idle-delay 0.5
+      org-directory "~/Documents/org/"
+      display-line-numbers-type nil
+      evil-ex-substitute-global t)
+(setq scroll-margin 6)
+(setq treemacs-position 'right)
+(setq
+        confirm-kill-emacs nil
+        org-log-done 'time
+        evil-vsplit-window-right t
+        evil-split-window-below t)
+(setq ispell-program-name "hunspell")
+(setq org-hide-emphasis-markers t)
+(setq org-roam-directory "~/Documents/roam")
+(setq exec-path (append exec-path '("/opt/homebrew/bin")))
+(setq company-idle-delay 0.7)
 
-(setq org-directory "~/Documents/org/")
-
-(setq display-line-numbers-type nil)
-(setq evil-ex-substitute-global t)
+(setq-default fill-column 80)
 
 (add-hook 'text-mode-hook #'auto-fill-mode)
-(setq scroll-margin 6)
 
 ;; Templates
 (set-file-template! "\\.org$" :trigger "__" :mode 'org-mode)
-
-(setq treemacs-position 'right)
 
 (defun +yas/org-src-lang ()
   "Try to find the current language of the src/header at `point'. Return nil otherwise."
@@ -55,23 +62,3 @@
 
 (after! (yas-reload-all)
   (add-hook 'prog-mode-hook #'yas-minor-mode))
-
-(display-time-mode 1)
-(global-subword-mode 1)
-(setq
-        confirm-kill-emacs nil
-        org-log-done 'time
-        evil-vsplit-window-right t
-        evil-split-window-below t)
-
-(add-hook 'text-mode-hook #'auto-fill-mode)
-(setq-default fill-column 80)
-(setq ispell-program-name "hunspell")
-
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
-(setq org-hide-emphasis-markers t)
-
-(setq org-roam-directory "~/Documents/roam")
-(setq exec-path (append exec-path '("/opt/homebrew/bin")))
-
-(setq company-idle-delay 0.7)

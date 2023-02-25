@@ -29,10 +29,6 @@
        undo
        vc
 
-       :email
-
-       :input
-
        :lang
        (cc +lsp +tree-sitter)
        (elixir +lsp +tree-sitter)
@@ -66,8 +62,6 @@
        :tools
        direnv
        (docker +lsp)
-       (debugger +lsp)
-       editorconfig
        (eval +overlay)
        gist
        lookup
